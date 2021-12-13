@@ -3,15 +3,12 @@ body{
 }
 
 #addBook{
-    border: 5px solid black;
-    border-radius: 30px;
     height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding: 20px;
-    background-color: gray;
+    padding: 10px;
 }
 
 #addBookPopup{
@@ -28,12 +25,19 @@ body{
 }
 
 #addBookContainer{
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 200px auto;
     width: 400px;
     height: auto;
+    border: 5px solid black;
+    border-radius: 30px;
+    background-color: gray;
 }
 
-#submit{
+#submitBook{
     height: 40px;
     width: 120px;
     border-radius: 5px;

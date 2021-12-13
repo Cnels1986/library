@@ -6,22 +6,14 @@ let myLibrary = [h,g];
 const addBtn = document.getElementById('add');
 const cardContainer = document.getElementById('bookCardContainer');
 const addBookPopup = document.getElementById('addBookPopup');
-const addBookForm = document.getElementById('addBookContainer');
-
+const addBookContainer = document.getElementById('addBookContainer');
+const submitBook = document.getElementById('submitBook');
 
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
-    this.info = function() {
-        let output = title + ' by ' + author + ', ' + pages + ' pages';
-        if(read){
-            return output + ', read';
-        } else {
-            return output + ', not read yet';
-        }
-    }
 }
 
 function showLibrary(){
@@ -50,13 +42,24 @@ function createBook(book){
     cardContainer.appendChild(card);
 }
 
-// function addBookToLibrary(){
-//
-// }
-
-addBtn.addEventListener('click', ()=> {
+addBtn.addEventListener('click', () => {
     showForm();
-});
+})
+
+submitBook.addEventListener('click', () => {
+    getBook();
+})
+
+function getBook(){
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const read = document.getElementById('read').value;
+    let newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+    createBook(newBook);
+    hideForm();
+}
 
 function showForm(){
     addBookPopup.style.display = 'block';
