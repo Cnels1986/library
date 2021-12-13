@@ -26,15 +26,33 @@ function Book(title, author, pages, read) {
 
 function showLibrary(){
     myLibrary.forEach((book) => {
-        let card = document.createElement('div');
-
-        cardContainer.appendChild(card);
+        createBook(book);
     });
 }
 
-function addBookToLibrary(){
+function createBook(book){
+    const card = document.createElement('div');
+    const title = document.createElement('div');
+    const author = document.createElement('div');
+    const pages = document.createElement('div');
+    const read = document.createElement('div');
 
+    title.textContent = book.title;
+    author.textContent = book.author;
+    pages.textContent = book.pages;
+    read.textContent = book.read;
+
+    card.appendChild(title);
+    card.appendChild(author);
+    card.appendChild(pages);
+    card.appendChild(read);
+
+    cardContainer.appendChild(card);
 }
+
+// function addBookToLibrary(){
+//
+// }
 
 addBtn.addEventListener('click', ()=> {
     showForm();
@@ -52,3 +70,5 @@ window.onclick = function(event) {
     if(event.target == addBookPopup)
         hideForm();
 }
+
+showLibrary();

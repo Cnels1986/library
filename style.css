@@ -11,6 +11,7 @@ body{
     align-items: center;
     justify-content: space-evenly;
     padding: 20px;
+    background-color: gray;
 }
 
 #addBookPopup{
@@ -48,4 +49,8 @@ footer{
     margin: 0 auto;
     padding: 100px;
     text-align: center;
+}
+
+.bookCard{
+
 }
