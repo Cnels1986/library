@@ -1,0 +1,51 @@
+body{
+    font-family: 'Roboto Mono', monospace;
+}
+
+#addBook{
+    border: 5px solid black;
+    border-radius: 30px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+#addBookPopup{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rbg(0,0,0);
+    background-color: rgba(0,0,0,.4);
+}
+
+#addBookContainer{
+    margin: 200px auto;
+    width: 400px;
+    height: auto;
+}
+
+#submit{
+    height: 40px;
+    width: 120px;
+    border-radius: 5px;
+    border-radius: 2px solid black;
+}
+
+input, select{
+    height:25px;
+    border-radius: 5px;
+}
+
+footer{
+    margin: 0 auto;
+    padding: 100px;
+    text-align: center;
+}

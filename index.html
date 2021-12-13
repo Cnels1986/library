@@ -3,11 +3,41 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
-        <<script src="script.js" charset="utf-8"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;1,700&display=swap" rel="stylesheet">
+        <script src="script.js" charset="utf-8" defer></script>
         <title>Library App - The Odin Project</title>
     </head>
     <body>
+        <button id='add'>Add New Book</button>
 
+        <div id="addBookPopup">
+            <div id="addBookContainer">
+                <form id="addBook">
+                    <label for="title">Title of the book:</label>
+                    <input type="text" placeholder="Title" id="title">
+                    <label for="author">Author of the book:</label>
+                    <input type="text" placeholder="Author" id="author">
+                    <label for="pages">Number of pages:</label>
+                    <input type="number" id="pages">
+                    <label for="read">Have you read it?</label>
+                    <select name="read" id="read">
+                        <option value="yes">Read</option>
+                        <option value="no">Not Read</option>
+                    </select>
+                    <input type="submit" value="Add Book" id="submit">
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div id='bookCardContainer'></div>
         <footer>&copy <a href="https://github.com/Cnels1986" target="_blank">Chris Nelson 2021</a></footer>
     </body>
 </html>
