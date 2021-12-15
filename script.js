@@ -1,7 +1,7 @@
-
+//
 // let h = new Book('Project Hail Mary', 'Andy Weir', 496, false);
 // let g = new Book('The Gunslinger', 'Stephen King', 300, true);
-
+//
 // let myLibrary = [h,g];
 
 let myLibrary = [];
@@ -18,7 +18,28 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
+Book.prototype.toggleRead = function () {
+    if(this.read == 'read'){
+        this.read = 'not read';
+    } else {
+        this.read = 'read';
+    }
+    showLibrary();
+}
+
+function toggleRead(){
+    if(this.read == 'read'){
+        this.read = 'not read';
+    } else {
+        this.read = 'read';
+    }
+    showLibrary();
+}
+
 function showLibrary(){
+    while(cardContainer.firstChild){
+        cardContainer.removeChild(cardContainer.firstChild);
+    }
     myLibrary.forEach((book) => {
         createBook(book);
     });
@@ -29,12 +50,15 @@ function createBook(book){
     const title = document.createElement('div');
     const author = document.createElement('div');
     const pages = document.createElement('div');
-    const read = document.createElement('div');
+    const read = document.createElement('BUTTON');
 
     title.textContent = book.title;
     author.textContent = book.author;
     pages.textContent = book.pages;
     read.textContent = book.read;
+    read.addEventListener('click', () => {
+        book.toggleRead();
+    })
 
     card.appendChild(title);
     card.appendChild(author);
@@ -81,7 +105,7 @@ function hideForm(){
     document.getElementById('title').value = '';
     document.getElementById('author').value = '';
     document.getElementById('pages').value = '';
-    document.getElementById('read').value = 'yes';
+    document.getElementById('read').value = 'read';
     addBookPopup.style.display = 'none';
 }
 
@@ -93,9 +117,7 @@ window.onclick = function(event) {
 function removeBook(index){
     console.log("Removing Book");
     myLibrary.splice(index, 1);
-    while(cardContainer.firstChild){
-        cardContainer.removeChild(cardContainer.firstChild);
-    }
+
     showLibrary();
 }
 
