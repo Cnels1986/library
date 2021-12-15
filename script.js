@@ -11,6 +11,8 @@ const addBookPopup = document.getElementById('addBookPopup');
 const addBookContainer = document.getElementById('addBookContainer');
 const submitBook = document.getElementById('submitBook');
 
+let bookCount = 0;
+
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
@@ -40,12 +42,12 @@ function showLibrary(){
     while(cardContainer.firstChild){
         cardContainer.removeChild(cardContainer.firstChild);
     }
-    myLibrary.forEach((book) => {
-        createBook(book);
-    });
+    for(let a = 0; a < myLibrary.length; a++) {
+        createBook(myLibrary[a], a);
+    }
 }
 
-function createBook(book){
+function createBook(book, count){
     const card = document.createElement('div');
     const title = document.createElement('div');
     const author = document.createElement('div');
@@ -68,11 +70,14 @@ function createBook(book){
     // adds a remove button to each of the book cards and uses the data attribute 'data-index' to track its index within the myLibrary array
     const remove = document.createElement('BUTTON');
     remove.textContent = "Remove";
-    remove.setAttribute('data-index', myLibrary.length-1);
+    remove.setAttribute('data-index', count);
     remove.classList.add('removeBtn');
     remove.addEventListener('click', () => {
-        removeBook(remove.dataset.index);
-    })
+        let del = window.confirm("Remove: " + book.title);
+        if(del){
+            removeBook(remove.dataset.index);
+        }
+    });
     card.appendChild(remove);
 
     cardContainer.appendChild(card);
@@ -93,7 +98,8 @@ function getBook(){
     const read = document.getElementById('read').value;
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
-    createBook(newBook);
+    bookCount = myLibrary.length - 1;
+    createBook(newBook, bookCount);
     hideForm();
 }
 
@@ -115,9 +121,8 @@ window.onclick = function(event) {
 }
 
 function removeBook(index){
-    console.log("Removing Book");
     myLibrary.splice(index, 1);
-
+    bookCount--;
     showLibrary();
 }
 
