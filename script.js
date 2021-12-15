@@ -41,10 +41,15 @@ function createBook(book){
     card.appendChild(pages);
     card.appendChild(read);
 
-    const test = document.createElement('BUTTON');
-    test.textContent = "Remove";
-    test.setAttribute('data-index', myLibrary.length-1);
-    card.appendChild(test);
+    // adds a remove button to each of the book cards and uses the data attribute 'data-index' to track its index within the myLibrary array
+    const remove = document.createElement('BUTTON');
+    remove.textContent = "Remove";
+    remove.setAttribute('data-index', myLibrary.length-1);
+    remove.classList.add('removeBtn');
+    remove.addEventListener('click', () => {
+        removeBook(remove.dataset.index);
+    })
+    card.appendChild(remove);
 
     cardContainer.appendChild(card);
 }
@@ -83,6 +88,15 @@ function hideForm(){
 window.onclick = function(event) {
     if(event.target == addBookPopup)
         hideForm();
+}
+
+function removeBook(index){
+    console.log("Removing Book");
+    myLibrary.splice(index, 1);
+    while(cardContainer.firstChild){
+        cardContainer.removeChild(cardContainer.firstChild);
+    }
+    showLibrary();
 }
 
 showLibrary();
