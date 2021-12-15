@@ -1,8 +1,10 @@
 
-let h = new Book('Project Hail Mary', 'Andy Weir', 496, false);
-let g = new Book('The Gunslinger', 'Stephen King', 300, true);
+// let h = new Book('Project Hail Mary', 'Andy Weir', 496, false);
+// let g = new Book('The Gunslinger', 'Stephen King', 300, true);
 
-let myLibrary = [h,g];
+// let myLibrary = [h,g];
+
+let myLibrary = [];
 const addBtn = document.getElementById('add');
 const cardContainer = document.getElementById('bookCardContainer');
 const addBookPopup = document.getElementById('addBookPopup');
@@ -39,6 +41,11 @@ function createBook(book){
     card.appendChild(pages);
     card.appendChild(read);
 
+    const test = document.createElement('BUTTON');
+    test.textContent = "Remove";
+    test.setAttribute('data-index', myLibrary.length-1);
+    card.appendChild(test);
+
     cardContainer.appendChild(card);
 }
 
@@ -66,6 +73,10 @@ function showForm(){
 }
 
 function hideForm(){
+    document.getElementById('title').value = '';
+    document.getElementById('author').value = '';
+    document.getElementById('pages').value = '';
+    document.getElementById('read').value = 'yes';
     addBookPopup.style.display = 'none';
 }
 
