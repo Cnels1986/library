@@ -21,22 +21,22 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.toggleRead = function () {
-    if(this.read == 'read'){
-        this.read = 'not read';
+    if(this.read == 'Read'){
+        this.read = 'Not Read';
     } else {
-        this.read = 'read';
+        this.read = 'Read';
     }
     showLibrary();
 }
-
-function toggleRead(){
-    if(this.read == 'read'){
-        this.read = 'not read';
-    } else {
-        this.read = 'read';
-    }
-    showLibrary();
-}
+//
+// function toggleRead(){
+//     if(this.read == 'Read'){
+//         this.read = 'Not Read';
+//     } else {
+//         this.read = 'Read';
+//     }
+//     showLibrary();
+// }
 
 function showLibrary(){
     while(cardContainer.firstChild){
@@ -49,23 +49,29 @@ function showLibrary(){
 
 function createBook(book, count){
     const card = document.createElement('div');
+    card.classList.add('cardStyle');
     const title = document.createElement('div');
+    title.classList.add('titleStyle');
     const author = document.createElement('div');
+    author.classList.add('authorStyle');
     const pages = document.createElement('div');
+    pages.classList.add('pagesStyle');
     const read = document.createElement('BUTTON');
+    read.classList.add('readStyle');
 
     title.textContent = book.title;
-    author.textContent = book.author;
-    pages.textContent = book.pages;
+    author.textContent = 'By: ' + book.author;
+    pages.textContent = 'Pages: ' + book.pages;
     read.textContent = book.read;
     read.addEventListener('click', () => {
         book.toggleRead();
     })
 
-    card.appendChild(title);
-    card.appendChild(author);
-    card.appendChild(pages);
-    card.appendChild(read);
+    const infoPanel = document.createElement('div');
+    infoPanel.classList.add('infoPanelStyle');
+    infoPanel.appendChild(title);
+    infoPanel.appendChild(author);
+    infoPanel.appendChild(pages);
 
     // adds a remove button to each of the book cards and uses the data attribute 'data-index' to track its index within the myLibrary array
     const remove = document.createElement('BUTTON');
@@ -78,8 +84,14 @@ function createBook(book, count){
             removeBook(remove.dataset.index);
         }
     });
-    card.appendChild(remove);
 
+    const btnPanel = document.createElement('div');
+    btnPanel.classList.add('btnPanelStyle');
+    btnPanel.appendChild(read);
+    btnPanel.appendChild(remove);
+
+    card.appendChild(infoPanel);
+    card.appendChild(btnPanel);
     cardContainer.appendChild(card);
 }
 
@@ -111,7 +123,7 @@ function hideForm(){
     document.getElementById('title').value = '';
     document.getElementById('author').value = '';
     document.getElementById('pages').value = '';
-    document.getElementById('read').value = 'read';
+    document.getElementById('read').value = 'Read';
     addBookPopup.style.display = 'none';
 }
 

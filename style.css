@@ -1,5 +1,7 @@
 body{
     font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
 }
 
 #addBook{
@@ -42,6 +44,7 @@ body{
     width: 120px;
     border-radius: 5px;
     border-radius: 2px solid black;
+    font-family: 'Roboto Mono', monospace;
 }
 
 input, select{
@@ -55,6 +58,81 @@ footer{
     text-align: center;
 }
 
-.bookCard{
+header{
+    width: 100%;
+    height: 150px;
+    background-image: url('./images/books.jpeg');
+    background-position: center;
+    opacity: .8;
+    text-align: center;
+    color: white;
 
 }
+
+h2{
+    margin: 0 auto;
+    padding-top: 30px;
+    font-size: 56px;
+}
+
+#add{
+    width: 200px;
+    height: 60px;
+    margin: 50px auto;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#addDiv{
+    width: 100%;
+    display: flex;
+}
+
+.cardStyle{
+    border: 2px solid black;
+    width: 500px;
+    border-radius: 5px;
+    padding: 10px;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.titleStyle{
+    font-size: 32px;
+    padding: 5px 5px 15px;
+}
+
+.authorStyle, .pagesStyle{
+    padding: 0px 30px;
+    font-size: 20px;
+}
+
+.readStyle, .removeBtn{
+    height: 50px;
+    width: 120px;
+    font-size: 20px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.infoPanelStyle{
+    overflow-wrap: anywhere;
+}
+
+.btnPanelStyle{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    justify-content: space-around;
+}
+
+#bookCardContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ .removeBtn{
+     font-family: 'Roboto Mono', monospace;
+ }
