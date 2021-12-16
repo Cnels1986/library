@@ -2,6 +2,7 @@ body{
     font-family: 'Roboto Mono', monospace;
     margin: 0;
     padding: 0;
+    background-color: rgb(237, 229, 210);
 }
 
 #addBook{
@@ -58,6 +59,11 @@ footer{
     text-align: center;
 }
 
+footer > a {
+    text-decoration: none;
+    color: black;
+}
+
 header{
     width: 100%;
     height: 150px;
@@ -79,7 +85,12 @@ h2{
     width: 200px;
     height: 60px;
     margin: 50px auto;
+    font-size: 16px;
     font-family: 'Roboto Mono', monospace;
+}
+
+#add:hover{
+    font-size: 20px;
 }
 
 #addDiv{
@@ -98,6 +109,7 @@ h2{
     align-items: center;
     margin: 10px;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    background-color: white;
 }
 
 .titleStyle{
