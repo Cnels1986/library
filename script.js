@@ -1,9 +1,3 @@
-//
-// let h = new Book('Project Hail Mary', 'Andy Weir', 496, false);
-// let g = new Book('The Gunslinger', 'Stephen King', 300, true);
-//
-// let myLibrary = [h,g];
-
 let myLibrary = [];
 const addBtn = document.getElementById('add');
 const cardContainer = document.getElementById('bookCardContainer');
@@ -13,23 +7,14 @@ const submitBook = document.getElementById('submitBook');
 
 let bookCount = 0;
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-}
-
-Book.prototype.toggleRead = function () {
-    if(this.read == 'Read'){
-        this.read = 'Not Read';
-    } else {
-        this.read = 'Read';
-    }
-    showLibrary();
-}
+// function Book(title, author, pages, read) {
+//     this.title = title
+//     this.author = author
+//     this.pages = pages
+//     this.read = read
+// }
 //
-// function toggleRead(){
+// Book.prototype.toggleRead = function () {
 //     if(this.read == 'Read'){
 //         this.read = 'Not Read';
 //     } else {
@@ -37,6 +22,24 @@ Book.prototype.toggleRead = function () {
 //     }
 //     showLibrary();
 // }
+
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    toggleRead() {
+        if(this.read == 'Read'){
+            this.read = 'Not Read';
+        } else {
+            this.read = 'Read';
+        }
+        showLibrary();
+    }
+}
 
 function showLibrary(){
     while(cardContainer.firstChild){
